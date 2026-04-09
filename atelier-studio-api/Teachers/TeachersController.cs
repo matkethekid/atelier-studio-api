@@ -2,11 +2,21 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace atelier_studio_api.Teachers;
 
-public class TeachersController : Controller
+[Route("teachers")]
+[ApiController]
+public class TeachersController(ITeachersService teachersService) : Controller
 {
-    // GET
-    public IActionResult Index()
+    [HttpGet]
+    public async Task<IActionResult> GetTeachers()
     {
-        return View();
+        var response = await teachersService.GetTeachers();
+        return Ok(response);
+    }
+
+    [HttpGet("{name}")]
+    public async Task<IActionResult> GetTeacherByName(string name)
+    {
+        var response = await teachersService.GetTeacherByName(name);
+        return Ok(response);
     }
 }

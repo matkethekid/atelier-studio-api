@@ -1,5 +1,6 @@
 ﻿using atelier_studio_api.Data;
 using atelier_studio_api.Entities;
+using atelier_studio_api.Teachers.Dto;
 using MongoDB.Driver;
 
 namespace atelier_studio_api.Teachers;
@@ -24,7 +25,7 @@ public class TeacherService : ITeachersService
         return await _teachers.Find(filter).FirstOrDefaultAsync();
     }
 
-    public async Task<string> CreateTeacher()
+    public async Task<string> CreateTeacher(CreateTeacherDto dto)
     {
         return "Predavač uspešno kreiran";
     }
