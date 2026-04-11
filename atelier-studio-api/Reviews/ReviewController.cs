@@ -30,11 +30,11 @@ public class ReviewController(IReviewService reviewService) : Controller
     public async Task<IActionResult> CreateReviewLink()
     {
         var result = await reviewService.CreateReviewLink();
-        if (result == null)
+        if (!result.Success)
         {
             return BadRequest(new { message = "Link već postoji" });
         }
 
-        return Ok(new { message = "Link je uspešno kreiran", link = result });
+        return Ok(new { message = result.Message, link = result.Data });
     }
 }

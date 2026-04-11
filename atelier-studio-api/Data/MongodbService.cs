@@ -1,4 +1,5 @@
 ﻿using MongoDB.Driver;
+using atelier_studio_api.Entities;
 
 namespace atelier_studio_api.Data;
 
@@ -18,4 +19,16 @@ public class MongodbService
     }
     
     public IMongoDatabase? Database => _database;
+    
+    public async Task CreateIndexes()
+    {
+        var reviewCollection = _database.GetCollection<Review>("Review");
+
+        var reviewTextIndex = new CreateIndexModel<Review>(
+            Builders<Review>.IndexKeys.Ascending(r => r.ReviewText),
+            new CreateIndexOptions { Unique = true }
+        );
+
+        await reviewCollection.Indexes.CreateOneAsync(reviewTextIndex);
+    }
 }

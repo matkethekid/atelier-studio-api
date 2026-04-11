@@ -1,6 +1,7 @@
 ﻿using atelier_studio_api.Data;
 using atelier_studio_api.Entities;
 using atelier_studio_api.Reviews.Dto;
+using atelier_studio_api.Reviews.ResponseModels;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
@@ -24,14 +25,17 @@ public class ReviewService : IReviewService
         return await _reviews.Find(_ => true).ToListAsync();
     }
 
-    public async Task<string?> CreateReview(CreateReviewDto dto)
+    public async Task<ServiceResult<string>> CreateReview(CreateReviewDto dto)
     {
-        var existingReview = _reviews.Find(_ => true).FirstOrDefaultAsync();
         var filter = Builders<Review>.Filter.Eq(r => r.ReviewText, dto.ReviewText);
-        await _reviews.Find(filter).FirstOrDefaultAsync();
+        var existingReview = await _reviews.Find(filter).FirstOrDefaultAsync();
         if (existingReview != null)
         {
-            return null;
+            return new ServiceResult<string>
+            {
+                Success = false,
+                Message = "Ocena već postoji"
+            };
         }
         
         var newReview = new Review
@@ -42,17 +46,25 @@ public class ReviewService : IReviewService
         };
         await _reviews.InsertOneAsync(newReview);
         
-        return "Ocena je uspešno dodata";
+        return new ServiceResult<string>
+        {
+            Success = true,
+            Message = "Ocena je uspešno dodata",
+        };
     }
 
-    public async Task<string?> CreateReviewLink()
+    public async Task<ServiceResult<string>> CreateReviewLink()
     {
         var randomGuid = Guid.NewGuid();
         var filter = Builders<ReviewLink>.Filter.Eq(r => r.Link, randomGuid);
         var existingReviewLink = await _reviewLinks.Find(filter).FirstOrDefaultAsync();
         if (existingReviewLink != null)
         {
-            return null;
+            return new ServiceResult<string>
+            {
+                Success = false,
+                Message = "Link već postoji",
+            };
         }
 
         var newReviewLink = new ReviewLink
@@ -66,6 +78,41 @@ public class ReviewService : IReviewService
         var frontendLink = _configuration["FrontendUrl"];
         var fullLink = frontendLink + "/" + randomGuid;
         
-        return fullLink;
+        return new ServiceResult<string>
+        {
+            Success = true,
+            Message = "Link kreiran",
+            Data = fullLink
+        };
+    }
+
+    public async Task<ServiceResult<bool>> CheckReviewLink(Guid link)
+    {
+        var filter = Builders<ReviewLink>.Filter.Eq(r => r.Link, link);
+        var existingReviewLink = await _reviewLinks.Find(filter).FirstOrDefaultAsync();
+        if (existingReviewLink == null)
+        {
+            return new ServiceResult<bool>
+            {
+                Success = false,
+                Message = "Link ne postoji"
+            };
+        }
+
+        if (existingReviewLink.Expired == true)
+        {
+            return new ServiceResult<bool>
+            {
+                Success = false,
+                Message = "Link je istekao"
+            };
+        }
+
+        return new ServiceResult<bool>
+        {
+            Success = true,
+            Message = "Link je validan",
+            Data = true
+        };
     }
 }

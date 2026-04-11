@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("atelier-studio-api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+98dd28db6a020fa26053e32cc6834219f3dfbfef")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6b5472eaef5fbce3e3f3bbd26871ee36d8a95ff1")]
 [assembly: System.Reflection.AssemblyProductAttribute("atelier-studio-api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("atelier-studio-api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
