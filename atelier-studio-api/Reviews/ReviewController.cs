@@ -18,9 +18,9 @@ public class ReviewController(IReviewService reviewService) : Controller
     public async Task<IActionResult> CreateReview(CreateReviewDto dto)
     {
         var result = await reviewService.CreateReview(dto);
-        if (result == null)
+        if (!result.Success)
         {
-            return BadRequest();
+            return BadRequest(new { message = result.Message });
         }
 
         return Ok(result);
@@ -32,7 +32,7 @@ public class ReviewController(IReviewService reviewService) : Controller
         var result = await reviewService.CreateReviewLink();
         if (!result.Success)
         {
-            return BadRequest(new { message = "Link već postoji" });
+            return BadRequest(new { message = result.Message });
         }
 
         return Ok(new { message = result.Message, link = result.Data });
