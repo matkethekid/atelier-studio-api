@@ -1,14 +1,23 @@
 {
   "version": 2,
-  "dgSpecHash": "rjMzVtAmmUQ=",
+  "dgSpecHash": "t6R3Gfb3DCg=",
   "success": true,
   "projectFilePath": "C:\\Users\\mateja\\Desktop\\atelier-studio-api\\atelier-studio-api\\atelier-studio-api.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\mateja\\.nuget\\packages\\amazon.core\\0.35.0\\amazon.core.0.35.0.nupkg.sha512",
+    "C:\\Users\\mateja\\.nuget\\packages\\amazon.s3\\0.35.1\\amazon.s3.0.35.1.nupkg.sha512",
+    "C:\\Users\\mateja\\.nuget\\packages\\awssdk.core\\4.0.3.29\\awssdk.core.4.0.3.29.nupkg.sha512",
+    "C:\\Users\\mateja\\.nuget\\packages\\awssdk.s3\\4.0.21.1\\awssdk.s3.4.0.21.1.nupkg.sha512",
+    "C:\\Users\\mateja\\.nuget\\packages\\carbon.storage\\3.16.0\\carbon.storage.3.16.0.nupkg.sha512",
     "C:\\Users\\mateja\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
     "C:\\Users\\mateja\\.nuget\\packages\\mongodb.bson\\3.7.1\\mongodb.bson.3.7.1.nupkg.sha512",
     "C:\\Users\\mateja\\.nuget\\packages\\mongodb.driver\\3.7.1\\mongodb.driver.3.7.1.nupkg.sha512",
+    "C:\\Users\\mateja\\.nuget\\packages\\pipelines.sockets.unofficial\\2.2.8\\pipelines.sockets.unofficial.2.2.8.nupkg.sha512",
     "C:\\Users\\mateja\\.nuget\\packages\\sharpcompress\\0.30.1\\sharpcompress.0.30.1.nupkg.sha512",
     "C:\\Users\\mateja\\.nuget\\packages\\snappier\\1.0.0\\snappier.1.0.0.nupkg.sha512",
+    "C:\\Users\\mateja\\.nuget\\packages\\stackexchange.redis\\2.12.14\\stackexchange.redis.2.12.14.nupkg.sha512",
+    "C:\\Users\\mateja\\.nuget\\packages\\stackexchange.redis.extensions.core\\12.1.0\\stackexchange.redis.extensions.core.12.1.0.nupkg.sha512",
+    "C:\\Users\\mateja\\.nuget\\packages\\system.io.hashing\\10.0.2\\system.io.hashing.10.0.2.nupkg.sha512",
     "C:\\Users\\mateja\\.nuget\\packages\\zstdsharp.port\\0.7.3\\zstdsharp.port.0.7.3.nupkg.sha512"
   ],
   "logs": []

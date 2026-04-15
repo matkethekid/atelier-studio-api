@@ -13,4 +13,6 @@ public class Teacher
     public string Location { get; set; }
     [BsonElement("languages")]
     public List<string> Languages { get; set; }
+    [BsonElement("profilepictureurl")]
+    public string ProfilePictureUrl { get; set; }
 }

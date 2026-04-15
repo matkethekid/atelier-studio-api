@@ -2,6 +2,66 @@
   "version": 3,
   "targets": {
     "net10.0": {
+      "Amazon.Core/0.35.0": {
+        "type": "package",
+        "compile": {
+          "lib/net10.0/Amazon.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net10.0/Amazon.Core.dll": {}
+        }
+      },
+      "Amazon.S3/0.35.1": {
+        "type": "package",
+        "dependencies": {
+          "Amazon.Core": "0.35.0",
+          "Carbon.Storage": "3.16.0"
+        },
+        "compile": {
+          "lib/net10.0/Amazon.S3.dll": {}
+        },
+        "runtime": {
+          "lib/net10.0/Amazon.S3.dll": {}
+        }
+      },
+      "AWSSDK.Core/4.0.3.29": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/AWSSDK.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/AWSSDK.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "AWSSDK.S3/4.0.21.1": {
+        "type": "package",
+        "dependencies": {
+          "AWSSDK.Core": "[4.0.3.29, 5.0.0)"
+        },
+        "compile": {
+          "lib/net8.0/AWSSDK.S3.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/AWSSDK.S3.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Carbon.Storage/3.16.0": {
+        "type": "package",
+        "compile": {
+          "lib/net10.0/Carbon.Storage.dll": {}
+        },
+        "runtime": {
+          "lib/net10.0/Carbon.Storage.dll": {}
+        }
+      },
       "DnsClient/1.6.1": {
         "type": "package",
         "compile": {
@@ -48,6 +108,19 @@
           }
         }
       },
+      "Pipelines.Sockets.Unofficial/2.2.8": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/Pipelines.Sockets.Unofficial.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/Pipelines.Sockets.Unofficial.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "SharpCompress/0.30.1": {
         "type": "package",
         "compile": {
@@ -70,6 +143,51 @@
           }
         }
       },
+      "StackExchange.Redis/2.12.14": {
+        "type": "package",
+        "dependencies": {
+          "Pipelines.Sockets.Unofficial": "2.2.8",
+          "System.IO.Hashing": "10.0.2"
+        },
+        "compile": {
+          "lib/net10.0/StackExchange.Redis.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/StackExchange.Redis.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "StackExchange.Redis.Extensions.Core/12.1.0": {
+        "type": "package",
+        "dependencies": {
+          "StackExchange.Redis": "2.12.14"
+        },
+        "compile": {
+          "lib/net10.0/StackExchange.Redis.Extensions.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net10.0/StackExchange.Redis.Extensions.Core.dll": {}
+        }
+      },
+      "System.IO.Hashing/10.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/net10.0/System.IO.Hashing.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/System.IO.Hashing.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
+        }
+      },
       "ZstdSharp.Port/0.7.3": {
         "type": "package",
         "compile": {
@@ -82,6 +200,89 @@
     }
   },
   "libraries": {
+    "Amazon.Core/0.35.0": {
+      "sha512": "XTc2Ikfee8IsjFCk+Q9TVDm63i+w6dTgaGZsjzHiQB4v0mrioDzLex80IcWNtmrvFpvmTegbsz2RyuW0R4vm2g==",
+      "type": "package",
+      "path": "amazon.core/0.35.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "amazon.core.0.35.0.nupkg.sha512",
+        "amazon.core.nuspec",
+        "lib/net10.0/Amazon.Core.dll"
+      ]
+    },
+    "Amazon.S3/0.35.1": {
+      "sha512": "Cdm5N5kNFR3WM8nROqTU9cZWYHl42n2463Kezhw3vL1HOBvqBmFTpfDQZGSXlGliGqtKi1PhJdKzexjQxXtQCw==",
+      "type": "package",
+      "path": "amazon.s3/0.35.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "amazon.s3.0.35.1.nupkg.sha512",
+        "amazon.s3.nuspec",
+        "lib/net10.0/Amazon.S3.dll"
+      ]
+    },
+    "AWSSDK.Core/4.0.3.29": {
+      "sha512": "y07n9BHBVRDe3fDAjitnOBPwDwJ5NZ4oOh6ZvOizYWEsJnYcs34FQtTJ70Gt17qTCH86ma5kJdyMZ2lixm/dqg==",
+      "type": "package",
+      "path": "awssdk.core/4.0.3.29",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "awssdk.core.4.0.3.29.nupkg.sha512",
+        "awssdk.core.nuspec",
+        "images/AWSLogo.png",
+        "lib/net472/AWSSDK.Core.dll",
+        "lib/net472/AWSSDK.Core.xml",
+        "lib/net8.0/AWSSDK.Core.dll",
+        "lib/net8.0/AWSSDK.Core.xml",
+        "lib/netcoreapp3.1/AWSSDK.Core.dll",
+        "lib/netcoreapp3.1/AWSSDK.Core.xml",
+        "lib/netstandard2.0/AWSSDK.Core.dll",
+        "lib/netstandard2.0/AWSSDK.Core.xml",
+        "tools/account-management.ps1"
+      ]
+    },
+    "AWSSDK.S3/4.0.21.1": {
+      "sha512": "SCXThk+p+32EqsJIQDtz4Ni0ny9MRV2o0UvorVbqQuUt7MUVgpm+fwouZ6rG4AUg2U+h8/Ixx22WUg0dP2bsBA==",
+      "type": "package",
+      "path": "awssdk.s3/4.0.21.1",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "analyzers/dotnet/cs/AWSSDK.S3.CodeAnalysis.dll",
+        "analyzers/dotnet/cs/SharedAnalysisCode.dll",
+        "awssdk.s3.4.0.21.1.nupkg.sha512",
+        "awssdk.s3.nuspec",
+        "images/AWSLogo.png",
+        "lib/net472/AWSSDK.S3.dll",
+        "lib/net472/AWSSDK.S3.xml",
+        "lib/net8.0/AWSSDK.S3.dll",
+        "lib/net8.0/AWSSDK.S3.xml",
+        "lib/netcoreapp3.1/AWSSDK.S3.dll",
+        "lib/netcoreapp3.1/AWSSDK.S3.xml",
+        "lib/netstandard2.0/AWSSDK.S3.dll",
+        "lib/netstandard2.0/AWSSDK.S3.xml",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
+      ]
+    },
+    "Carbon.Storage/3.16.0": {
+      "sha512": "wfskIHagxLXTg8cPNoOU0mXCS02ubTvce+d8y6eO6gGG4vyf3CPUPophIrdBTEgjJdBHaAdaS4LFGwCKTUV4vw==",
+      "type": "package",
+      "path": "carbon.storage/3.16.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "carbon.storage.3.16.0.nupkg.sha512",
+        "carbon.storage.nuspec",
+        "lib/net10.0/Carbon.Storage.dll"
+      ]
+    },
     "DnsClient/1.6.1": {
       "sha512": "4H/f2uYJOZ+YObZjpY9ABrKZI+JNw3uizp6oMzTXwDw6F+2qIPhpRl/1t68O/6e98+vqNiYGu+lswmwdYUy3gg==",
       "type": "package",
@@ -144,6 +345,29 @@
         "packageIcon.png"
       ]
     },
+    "Pipelines.Sockets.Unofficial/2.2.8": {
+      "sha512": "zG2FApP5zxSx6OcdJQLbZDk2AVlN2BNQD6MorwIfV6gVj0RRxWPEp2LXAxqDGZqeNV1Zp0BNPcNaey/GXmTdvQ==",
+      "type": "package",
+      "path": "pipelines.sockets.unofficial/2.2.8",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net461/Pipelines.Sockets.Unofficial.dll",
+        "lib/net461/Pipelines.Sockets.Unofficial.xml",
+        "lib/net472/Pipelines.Sockets.Unofficial.dll",
+        "lib/net472/Pipelines.Sockets.Unofficial.xml",
+        "lib/net5.0/Pipelines.Sockets.Unofficial.dll",
+        "lib/net5.0/Pipelines.Sockets.Unofficial.xml",
+        "lib/netcoreapp3.1/Pipelines.Sockets.Unofficial.dll",
+        "lib/netcoreapp3.1/Pipelines.Sockets.Unofficial.xml",
+        "lib/netstandard2.0/Pipelines.Sockets.Unofficial.dll",
+        "lib/netstandard2.0/Pipelines.Sockets.Unofficial.xml",
+        "lib/netstandard2.1/Pipelines.Sockets.Unofficial.dll",
+        "lib/netstandard2.1/Pipelines.Sockets.Unofficial.xml",
+        "pipelines.sockets.unofficial.2.2.8.nupkg.sha512",
+        "pipelines.sockets.unofficial.nuspec"
+      ]
+    },
     "SharpCompress/0.30.1": {
       "sha512": "XqD4TpfyYGa7QTPzaGlMVbcecKnXy4YmYLDWrU+JIj7IuRNl7DH2END+Ll7ekWIY8o3dAMWLFDE1xdhfIWD1nw==",
       "type": "package",
@@ -180,6 +404,79 @@
         "snappier.nuspec"
       ]
     },
+    "StackExchange.Redis/2.12.14": {
+      "sha512": "QiAQg40OP4Owem6/PjIbjEKq2+uIeQYeZ1TCMUnx/QvKugOPxOfC96wjlnBjWHi4Wq9pv9+fDlXGT06XkRZ6Ig==",
+      "type": "package",
+      "path": "stackexchange.redis/2.12.14",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net10.0/StackExchange.Redis.dll",
+        "lib/net10.0/StackExchange.Redis.xml",
+        "lib/net461/StackExchange.Redis.dll",
+        "lib/net461/StackExchange.Redis.xml",
+        "lib/net472/StackExchange.Redis.dll",
+        "lib/net472/StackExchange.Redis.xml",
+        "lib/net6.0/StackExchange.Redis.dll",
+        "lib/net6.0/StackExchange.Redis.xml",
+        "lib/net8.0/StackExchange.Redis.dll",
+        "lib/net8.0/StackExchange.Redis.xml",
+        "lib/netstandard2.0/StackExchange.Redis.dll",
+        "lib/netstandard2.0/StackExchange.Redis.xml",
+        "stackexchange.redis.2.12.14.nupkg.sha512",
+        "stackexchange.redis.nuspec"
+      ]
+    },
+    "StackExchange.Redis.Extensions.Core/12.1.0": {
+      "sha512": "qUEp32uz7nywWqLlPfK92fN9GXcR4h7QQTUYtDgPpSlAlwW7wkVOn+p/+aQedIIUtgc4rTCgAEBkTFs6UnIEkg==",
+      "type": "package",
+      "path": "stackexchange.redis.extensions.core/12.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net10.0/.xml",
+        "lib/net10.0/StackExchange.Redis.Extensions.Core.dll",
+        "lib/net8.0/.xml",
+        "lib/net8.0/StackExchange.Redis.Extensions.Core.dll",
+        "lib/net9.0/.xml",
+        "lib/net9.0/StackExchange.Redis.Extensions.Core.dll",
+        "lib/netstandard2.1/.xml",
+        "lib/netstandard2.1/StackExchange.Redis.Extensions.Core.dll",
+        "stackexchange.redis.extensions.core.12.1.0.nupkg.sha512",
+        "stackexchange.redis.extensions.core.nuspec"
+      ]
+    },
+    "System.IO.Hashing/10.0.2": {
+      "sha512": "AKJknIFi9O3+rGExxTry188JPvUoZAPcCtS2qdqyFhIzsxQ1Ap94BeGDG0VzVEHakhmRxmJtVih6TsHoghIt/g==",
+      "type": "package",
+      "path": "system.io.hashing/10.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/System.IO.Hashing.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net8.0/_._",
+        "buildTransitive/netcoreapp2.0/System.IO.Hashing.targets",
+        "lib/net10.0/System.IO.Hashing.dll",
+        "lib/net10.0/System.IO.Hashing.xml",
+        "lib/net462/System.IO.Hashing.dll",
+        "lib/net462/System.IO.Hashing.xml",
+        "lib/net8.0/System.IO.Hashing.dll",
+        "lib/net8.0/System.IO.Hashing.xml",
+        "lib/net9.0/System.IO.Hashing.dll",
+        "lib/net9.0/System.IO.Hashing.xml",
+        "lib/netstandard2.0/System.IO.Hashing.dll",
+        "lib/netstandard2.0/System.IO.Hashing.xml",
+        "system.io.hashing.10.0.2.nupkg.sha512",
+        "system.io.hashing.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
     "ZstdSharp.Port/0.7.3": {
       "sha512": "U9Ix4l4cl58Kzz1rJzj5hoVTjmbx1qGMwzAcbv1j/d3NzrFaESIurQyg+ow4mivCgkE3S413y+U9k4WdnEIkRA==",
       "type": "package",
@@ -201,7 +498,11 @@
   },
   "projectFileDependencyGroups": {
     "net10.0": [
-      "MongoDB.Driver >= 3.7.1"
+      "AWSSDK.Core >= 4.0.3.29",
+      "AWSSDK.S3 >= 4.0.21.1",
+      "Amazon.S3 >= 0.35.1",
+      "MongoDB.Driver >= 3.7.1",
+      "StackExchange.Redis.Extensions.Core >= 12.1.0"
     ]
   },
   "packageFolders": {
@@ -247,9 +548,25 @@
       "net10.0": {
         "targetAlias": "net10.0",
         "dependencies": {
+          "AWSSDK.Core": {
+            "target": "Package",
+            "version": "[4.0.3.29, )"
+          },
+          "AWSSDK.S3": {
+            "target": "Package",
+            "version": "[4.0.21.1, )"
+          },
+          "Amazon.S3": {
+            "target": "Package",
+            "version": "[0.35.1, )"
+          },
           "MongoDB.Driver": {
             "target": "Package",
             "version": "[3.7.1, )"
+          },
+          "StackExchange.Redis.Extensions.Core": {
+            "target": "Package",
+            "version": "[12.1.0, )"
           }
         },
         "imports": [

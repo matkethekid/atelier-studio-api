@@ -8,7 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Amazon.S3" Version="0.35.1" />
+    <PackageReference Include="AWSSDK.Core" Version="4.0.3.29" />
+    <PackageReference Include="AWSSDK.S3" Version="4.0.21.1" />
     <PackageReference Include="MongoDB.Driver" Version="3.7.1" />
+    <PackageReference Include="StackExchange.Redis.Extensions.Core" Version="12.1.0" />
   </ItemGroup>
 
 </Project>
